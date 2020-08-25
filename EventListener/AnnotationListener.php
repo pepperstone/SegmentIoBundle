@@ -17,7 +17,7 @@ use Doctrine\Common\Annotations\Reader;
 use Farmatholin\SegmentIoBundle\Configuration\Page;
 use Farmatholin\SegmentIoBundle\Configuration\Track;
 use Farmatholin\SegmentIoBundle\Util\SegmentIoProvider;
-use Symfony\Component\HttpKernel\Event\ControllerEvent;
+use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
@@ -64,11 +64,11 @@ class AnnotationListener
     }
 
     /**
-     * @param ControllerEvent $event
+     * @param FilterControllerEvent $event
      *
      * @throws \ReflectionException
      */
-    public function onKernelController(ControllerEvent $event)
+    public function onKernelController(FilterControllerEvent $event)
     {
         $controller = $event->getController();
 
